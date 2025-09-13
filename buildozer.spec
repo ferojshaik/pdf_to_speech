@@ -49,6 +49,12 @@ android.release_artifact = apk
 # (str) The format used to package the app for debug mode  
 android.debug_artifact = apk
 
+# (str) Android SDK version to use
+android.sdk = 33
+
+# (str) Android NDK version to use
+android.ndk = 25.1.8937393
+
 #
 # Python for android (p4a) specific
 #
@@ -61,6 +67,42 @@ p4a.fork = kivy
 
 # (str) python-for-android branch to use
 p4a.branch = master
+
+# (str) python-for-android specific commit to use
+p4a.commit = HEAD
+
+# (str) The directory in which python-for-android should look for your own build recipes
+p4a.local_recipes =
+
+# (str) Filename to the hook for p4a
+p4a.hook =
+
+# (str) Bootstrap to use for android builds
+p4a.bootstrap = sdl2
+
+# (int) port number to specify an explicit --port= p4a argument
+p4a.port =
+
+# Control passing the --use-setup-py flag to p4a
+p4a.use_setup_py = False
+
+# Control passing the --private flag to p4a
+p4a.private = False
+
+# (str) Extra command line arguments to pass when invoking pythonforandroid.toolchain
+p4a.extra_args =
+
+# (str) python-for-android branch to use, or full git url
+p4a.branch = master
+
+# (str) python-for-android fork to use, or full git url
+p4a.fork = kivy
+
+# (str) python-for-android branch to use, or full git url
+p4a.branch = master
+
+# (str) python-for-android fork to use, or full git url
+p4a.fork = kivy
 
 [buildozer]
 

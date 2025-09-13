@@ -36,6 +36,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y git zip unzip openjdk-11-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
         sudo apt-get install -y build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev libreadline-dev libncursesw5-dev libgdbm-dev liblzma-dev zlib1g-dev uuid-dev libdb-dev
+        sudo apt-get install -y libc6-dev libc6-dev-i386 lib32z1-dev lib32ncurses5-dev lib32stdc++6
+        sudo apt-get install -y libc6-dev-i386 lib32z1-dev lib32ncurses5-dev lib32stdc++6
     
     - name: Install Python dependencies
       run: |
@@ -43,9 +45,19 @@ jobs:
         pip install buildozer cython
         pip install -r requirements.txt
     
+    - name: Initialize Buildozer
+      run: |
+        buildozer init
+        buildozer android clean
+    
     - name: Build with Buildozer
       run: |
         buildozer android debug
+      env:
+        ANDROIDSDK: /opt/android-sdk
+        ANDROIDNDK: /opt/android-ndk
+        ANDROIDAPI: 33
+        ANDROIDMINAPI: 21
     
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
