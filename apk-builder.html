@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF to Speech APK Builder</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .step { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .code { background: #000; color: #0f0; padding: 10px; border-radius: 3px; font-family: monospace; }
+        .button { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>PDF to Speech APK Builder</h1>
+    
+    <div class="step">
+        <h2>Method 1: Use APK Builder Online</h2>
+        <p>1. Go to <a href="https://appetize.io" target="_blank">Appetize.io</a></p>
+        <p>2. Upload your Python code</p>
+        <p>3. They'll build the APK for you</p>
+    </div>
+    
+    <div class="step">
+        <h2>Method 2: Use Termux (Easiest)</h2>
+        <p>1. Install <a href="https://termux.com" target="_blank">Termux</a> on your Android phone</p>
+        <p>2. Run these commands in Termux:</p>
+        <div class="code">
+pkg update && pkg upgrade<br>
+pkg install python<br>
+pip install pdfminer.six pyttsx3<br>
+# Then run your Python script directly
+        </div>
+    </div>
+    
+    <div class="step">
+        <h2>Method 3: Use Pydroid 3</h2>
+        <p>1. Install <a href="https://play.google.com/store/apps/details?id=ru.iiec.pydroid3" target="_blank">Pydroid 3</a> from Play Store</p>
+        <p>2. Copy your Python code</p>
+        <p>3. Install required packages in Pydroid 3</p>
+        <p>4. Run your script directly</p>
+    </div>
+    
+    <div class="step">
+        <h2>Method 4: Convert to APK with Auto-py-to-exe</h2>
+        <p>1. Install: <code>pip install auto-py-to-exe</code></p>
+        <p>2. Run: <code>auto-py-to-exe</code></p>
+        <p>3. Select your main.py file</p>
+        <p>4. Choose "One File" and "Window Based"</p>
+        <p>5. Click "Convert"</p>
+    </div>
+</body>
+</html>

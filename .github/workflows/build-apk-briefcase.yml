@@ -1,0 +1,51 @@
+name: Build Android APK with Briefcase
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install briefcase
+        pip install -r requirements.txt
+    
+    - name: Set up Android SDK
+      uses: android-actions/setup-android@v3
+      with:
+        api-level: 33
+        build-tools: 33.0.0
+        ndk-version: 25.1.8937393
+    
+    - name: Create Android app
+      run: |
+        briefcase create android
+    
+    - name: Build Android APK
+      run: |
+        briefcase build android
+    
+    - name: Package Android APK
+      run: |
+        briefcase package android --debug
+    
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: android-apk-briefcase
+        path: android/app/build/outputs/apk/debug/*.apk

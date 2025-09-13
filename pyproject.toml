@@ -1,0 +1,29 @@
+[build-system]
+requires = ["briefcase"]
+
+[tool.briefcase]
+project_name = "PDF to Speech"
+bundle = "com.example"
+version = "0.0.1"
+description = "Convert PDF files to speech"
+author = "Your Name"
+author_email = "your.email@example.com"
+url = "https://github.com/yourusername/pdf-to-speech"
+
+[tool.briefcase.app.pdf_to_speech]
+formal_name = "PDF to Speech"
+description = "Convert PDF files to speech"
+sources = ["app"]
+requires = [
+    "pdfminer.six>=20220524",
+]
+
+[tool.briefcase.app.pdf_to_speech.android]
+requires = [
+    "pdfminer.six>=20220524",
+]
+permissions = [
+    "android.permission.READ_EXTERNAL_STORAGE",
+    "android.permission.WRITE_EXTERNAL_STORAGE",
+    "android.permission.INTERNET",
+]
